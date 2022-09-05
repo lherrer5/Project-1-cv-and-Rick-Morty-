@@ -1,0 +1,494 @@
+* {
+    margin: auto;
+    margin: 0px;
+}
+
+body {
+    background-color: #212529;
+}
+
+/* header */
+
+.padreHeader {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.navSuperior {
+    display: flex;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 15px;
+    margin: 0px 10px;
+}
+
+.liHeader {
+    display: inline;
+    list-style-type: none;
+}
+
+.aNavSuperior {
+    text-decoration: none;
+    color: white;
+    font-family: "Poppins";
+    font-size: 25px;
+    padding: 15px;
+    margin: 0px 10px;
+}
+
+#botonMando {
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+    background-color: #ffb742;
+    font-family: "Poppins";
+    font-size: 12px;
+    color: #212529;
+}
+
+/* main Home*/
+
+#miNombreAmarillo {
+    color: #ffb742;
+}
+
+.Mifoto {
+    height: 180px;
+    width: 150px;
+    margin: 20px;
+    border-radius: 50%;
+}
+
+.mainHome {
+    font-family: "Inter";
+    text-align: center;
+    margin: 30px 10px;
+    color: white;
+}
+
+/* section Home */
+
+.cajasSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cajaMediana {
+    background-color: #292b2e;
+    text-align: center;
+    height: 90px;
+    width: 1000px;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.imaLogo {
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+
+.anos {
+    color: #ffb742;
+    font-size: 25px;
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+.letraBlanca {
+    color: white;
+    font-family: "Inter";
+    font-size: 18px;
+}
+
+.textoCentro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    background-color: #1c1c1c;
+    text-align: center;
+    justify-content: space-between;
+}
+
+
+.divsFooter {
+    margin: 15px;
+}
+
+#miNombreAmarilloAbajo {
+    color: #ffb742;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 100%;
+    padding-bottom: 20px;
+}
+
+.TitulosAbajo {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    padding-left: 35px;
+    color: white;
+}
+
+.enBloque {
+    display: flex;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 36px;
+    padding-left: 0px;
+    margin-left: 0%;
+    color: white;
+}
+
+.tituloHire {
+    font-family: "Poppins";
+    font-style: bold;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    padding-right: 400px;
+    margin-right: 100px;
+    color: white;
+}
+
+#inputFoot {
+    padding: 0%;
+    margin: 0%;
+    border: 0px;
+    width: 400px;
+    height: 60px;
+}
+
+#buttonFoot {
+    padding: 0%;
+    margin-right: 120px;
+}
+
+.form {
+    border-radius: 30px;
+    border: 0px;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    border-color: none;
+}
+
+.send {
+    height: 50px;
+    width: 50px;
+    border-radius: 48px;
+    background-color: #ffb742;
+    flex-direction: row;
+}
+
+a:hover {
+    color: #ffb742;
+}
+
+.aNavInferior {
+    text-decoration: none;
+    color: white;
+    font-family: "Poppins";
+    font-size: 15px;
+    text-align: left;
+}
+
+
+/* ABOUT */
+
+.mainAbout {
+    display: flex;
+    font-family: "Inter";
+    text-align: center;
+    justify-content: center;
+}
+
+.hijosAbout {
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    height: 450px;
+}
+
+.sectionAbout {
+    flex-direction: column;
+    height: 400px;
+    width: 750px;
+    justify-content: space-between;
+}
+
+
+.pAbout {
+    font-family: "Poppins";
+    text-align: justify;
+    color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 36px;
+    margin: 20px;
+}
+
+
+.MifotoAbout {
+    height: 300px;
+    width: 160px;
+    margin-right: 90px;
+}
+
+
+.titleAbout {
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    color: #ffb742;
+    font-family: "Poppins";
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.08);
+    width: 200px;
+    height: 30px;
+    margin: 20px;
+    padding: 3px;
+}
+
+.me {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+    color: white;
+    text-align: left;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.aboutButton {
+    font-family: "Poppins";
+    background-color: #ffb742;
+    color: black;
+    font-size: 15px;
+    border-radius: 20px;
+    font-style: initial;
+    margin: 20px;
+    font-weight: bold;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+}
+
+
+/* EXPERIENCE */
+.mainExpe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+
+.hijosExpe {
+    margin: 10px;
+}
+
+#box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0%;
+    height: 500px;
+    margin: 10px;
+}
+
+.small-box {
+    width: 570px;
+    height: 450px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+}
+
+.flex-smallbox {
+    display: flex;
+
+}
+
+.logoExpe {
+    width: 100px;
+    height: 70px;
+    margin: 0%;
+    padding-left: 200px;
+}
+
+.logoExpe1 {
+    width: 100px;
+    height: 70px;
+    margin: 0%;
+    padding-left: 200px;
+}
+
+.divExpe {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titlEpExpe {
+    color: black;
+    font-family: "Poppins";
+    font-size: 25px;
+    font-weight: bold;
+    text-align: justify;
+    margin: 0%;
+    padding: 20px;
+}
+
+
+.pExpe {
+    color: black;
+    font-family: "Poppins";
+    font-size: 20px;
+    text-align: justify;
+    margin: 0%;
+    padding: 1%;
+}
+
+#pAExpe {
+    text-decoration: none;
+    color: orange;
+}
+
+#pAExpe1 {
+    text-decoration: none;
+    color: orange;
+}
+
+
+/* CONTACT */
+
+/* main CONTACT */
+
+.mainCont {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 800px;
+}
+
+.hijosCont {
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contacto {
+    color: #ffb742;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.08);
+    width: 200px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Poppins';
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin: 1px;
+    padding: 3px;
+}
+
+.smile {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+    color: white;
+    margin: 5px;
+}
+
+.contenedor {
+    background-color: white;
+    font-family: "Poppins";
+    height: 200px;
+    width: 400px;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+}
+
+#pChiste {
+    font-family: "Poppins";
+    font-weight: 30px;
+    padding-right: 0px;
+    margin-right: 0px;
+    font-size: 25px;
+}
+
+#unomas {
+    font-family: "Poppins";
+    background-color: #ffb742;
+    color: black;
+    font-size: 15px;
+    border-radius: 20px;
+    font-style: initial;
+    margin: 5px;
+    font-weight: bold;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+}
+
+.info {
+    width: 410px;
+    height: 50px;
+    background-color: #212529;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid #676767;
+    outline: none;
+    display: flex;
+}
+
+.sendContact {
+    font-family: "Poppins";
+    background-color: #ffb742;
+    color: black;
+    font-size: 15px;
+    border-radius: 20px;
+    font-style: initial;
+    margin: 20px;
+    font-weight: bold;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+}
+
+img.change_logo{
+    content: url("./img/WWCode_Medellin_Black3.png");
+}

@@ -1,97 +1,136 @@
-let acu = 0;//pa reinicar la pag
+var pagActual = ""; //variable global para saber la busqueda que actualmente se esta realizando
+let contPage = 1; //variable global para inicializar la funcion de incremento de paginas
 
-
-window.addEventListener('DOMContentLoaded', getCharacters);//esperar q se cargue el html y corra la funcion
-
-function getCharacters() {//inserta el texto de bienvenida
-//variable crearTexto crea las etiquetas y contenido q tengo entre comillas francesas
-    const crearTexto = document.createRange().createContextualFragment(`
-                    
-                        <div class="main-hijo">
-                            Choose any of the catergories above
-                            and learn more about Rick and Morty characters.
-                        </div>
-                
-                `);
-// variable information escoge con la clase main-hijo el elemnto en donde se inseratara la variable crearTexto
-    const information = document.querySelector('.main-hijo')
-    // metodo append hace la inserción de information en crearTexto
-    information.append(crearTexto);
-}
-
-//creamos variables para llamar las etiquetas li q tiene boton con su ID
+//obtencion de los elementos nav del html
 const female = document.getElementById('buttonFemales');
 const male = document.getElementById('buttonMales');
 const allc = document.getElementById('buttonAll');
 const alive = document.getElementById('buttonAlive');
 const dead = document.getElementById('buttonDead');
+const next = document.querySelector('.next');
+const previous = document.querySelector('.previous');
 
-//creo el evento click para cada variable y la funcion info para q llame los personajes segun el filtro de la parte final d la url
+//evento que escucha cuando se oprime el boton next y envia el jquery a la funcion info() para traer tarjetas
+next.addEventListener('click', () => {
+    //variable contadora de aumento páginas
+    contPage=contPage+1;
+    if (pagActual == "female") {
+        //paso a info los parametros q necesito connsultar
+        info('Female', '', contPage)//parametros de gender y change page
+    } else if (pagActual == "male") {
+        info('Male', '', contPage)//parametros de gender y change page
+    } else if (pagActual == "dead") {
+        info('', 'Dead', contPage)//parametros de status y change page
+    } else if (pagActual == "alive") {
+        info('', 'Alive', contPage)//parametros de status y change page
+    } else if (pagActual == "allc") {
+        info('', '', contPage)//solo paso changePage para q muestre todos los personajes
+    }
+})
+
+//evento que escucha cuando se oprime el boton previous 
+previous.addEventListener('click', () => {
+    contPage=contPage-1;
+    if (pagActual == "female") {
+        info('Female', '', contPage)
+    } else if (pagActual == "male") {
+        info('Male', '', contPage)
+    } else if (pagActual == "dead") {
+        info('', 'Dead', contPage)
+    } else if (pagActual == "alive") {
+        info('', 'Alive', contPage)
+    } else if (pagActual == "allc") {
+        info('', '', contPage)
+    }
+})
+
+//Evento que escucha cuando se oprime el boton de busqueda all, female, male, alive, died.
+//Se le asigna el valor a la variable global pagActual dependiendo el boton de busqueda seleccionado 
 female.addEventListener('click', function () {
-    
-    info('https://rickandmortyapi.com/api/character/?gender=Female');//hace llamado a funcion info para inserta los personajes
-    borrar()//hace llamado a funcion borrar para eliminar el contenido actual
+    pagActual = "female"
+    contPage = 1;
+    info('Female', '', '');
 });
 
+
 male.addEventListener('click', function () {
-    info('https://rickandmortyapi.com/api/character/?gender=Male');
-    borrar()
+    pagActual = "male"
+    contPage = 1;
+    info('Male', '', '');
 });
 
 alive.addEventListener('click', function () {
-    info('https://rickandmortyapi.com/api/character/?status=Alive');
-    borrar()
+    pagActual = "alive"
+    contPage = 1;
+    info('', 'Alive', '');
 });
 
 dead.addEventListener('click', function () {
-    info('https://rickandmortyapi.com/api/character/?status=Dead');
-    borrar()
+    pagActual = "dead"
+    contPage = 1;
+    info('', 'Dead', '');
 });
 
 allc.addEventListener('click', function () {
-    info('https://rickandmortyapi.com/api/character');
-    borrar()
+    pagActual = "allc"
+    contPage = 1;
+    info('', '', '');
 });
 
+//funcion para consumir la API e insertar los datos al HTML
+function info(gender, status, changePage) {
+    //concateno los parametros q necesito con marcadores de posicion ${} y uso plantillas literales encerradas por el carácter ``
+    const api = `https://rickandmortyapi.com/api/character/?gender=${gender}&status=${status}&page=${changePage}`;
 
-//info llama a la api
-function info(url) {
-    fetch(url)
-        .then(response => response.json())//trae la info de la api en formato json
+    //Resetear botones cuando se busca para que al llegar a la ultima pag y tengo next desabilitado, al darle previous se m vuelva a activar
+    next.classList.remove("contenedorbotones");
+    previous.classList.remove("contenedorbotones");
+
+    fetch(api)
+        .then(response => response.json())//recibo mi respuesta en formato .json
         .then(data => {
-            data.results.forEach(cartoon => {//me trae los resultados d la api (como objeto js-) segun la cantidad de elementos d la api
-                //variable div crea las etiquetas y contenido q tengo entre comillas francesas
-                //cartoon es un parametro del array data.result con los atributos name, image, etc que me trajo la api
-                const div = document.createRange().createContextualFragment(`
+            //validación primera y última página
+            if (data.info.pages == changePage) {
+                //Ultima pagina
+                alert("ultima página");
+                //agrego la clase para desactivar boton next
+                next.classList.add("contenedorbotones")
+            }
+
+            if (changePage === 1) {
+                previous.classList.add("contenedorbotones")
+                alert("primera página");
+            }
+
+            data.results.forEach(personaje => {//empiezo a manipular los dato recibidos, con la key results
+            //inserto etiqueta article en mi html
+                const article = document.createRange().createContextualFragment(`
                 <article class="card">
                 <div class="image-container">
-                    <h2 class="card-body-p">${cartoon.name}</h2>
-                    <img src="${cartoon.image}" alt="personaje" class="card-body-img">
-                    <p class="generos">${cartoon.gender}</p>
-                    <span class="card-body-status">${cartoon.status}</span>
-                    <span class="card-body-species">${cartoon.species}</span>
+                    <h2 class="card-body-p">${personaje.name}</h2>
+                    <img src="${personaje.image}" alt="personaje" class="card-body-img">
+                    <p class="generos">${personaje.gender}</p>
+                    <span class="card-body-status">${personaje.status}</span>
+                    <span class="card-body-species">${personaje.species}</span>
                 </div>
             </article>
                     `);
-//esta const information selecciona mi elemento htlm con la clase mainPadre para hacer el append d la const div
+            //esta const information selecciona mi elemento htlm con la clase mainPadre para hacer el append d la const article
                 const information = document.querySelector('.mainPadre')
-                acu = acu + 1;//da la vuelta en el forEach hasta llegar al ultimo elemento
-                information.append(div);
+                information.append(article);
             });
-
         }).catch(error =>console.log(error))
-//llamo a funcion borrar para eliminar contenido anterior e insertar lo nuevo
-    borrar()
+        
+    //llamo a funcion borrar para eliminar contenido anterior e insertar lo nuevo    
+    removeCards(); //borra las cartas anteriores
+    
+    //crea la clase activeButtons reemplazando la contenedorbotones para q aparezca next y previous
+    let buttons = document.querySelector('.contenedorbotones')
+    buttons.classList.add('activeButtons')
 }
 
 
-function borrar(){
-    const parent = document.querySelector('.mainPadre')// variable parent escoge con la clase main-padre el elemnto al q voy a borrar contenido insertando "" vacio
-    parent.innerHTML = ""
+function removeCards() {
+    const cards = document.querySelector('.mainPadre').innerHTML = "";
 }
 
- // forma con for
-    // const cards = document.querySelectorAll('.card')
-    // for(card of cards) {
-    //     card.remove() /el metodo remove m borra card
-    //}

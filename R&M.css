@@ -128,6 +128,28 @@ a:link {
     text-align: center;
 }
 
+/* contenedorbotones se crea con display none para que no aparezca cuando inicie la pagina */
+.contenedorbotones {
+    display: none;   
+}
+
+/* Esta clase se inseta en div con clase contenedorbotones, reemplazandola y activando los botones*/
+.activeButtons {
+    display: flex;
+    justify-content: space-between;
+    background-color: #72C7D0;
+}
+
+.contenedorbotones button {
+    margin: 20px 30px;
+    width: 77px;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: #d7f2f2;
+    border: 2px solid #d7f2f2;
+    cursor: pointer;
+}
+
 /* etiquetas del footer */
 footer {
     display: flex;
@@ -204,15 +226,15 @@ footer li {
     margin: 1%;
 }
 
-.main-hijo {
+#main-hijo {
     padding: 25px 150px;
     color: white;
     text-align: center;
     font-family: 'Roboto';
     font-weight:bold;
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 0.03em;
-}
+} 
 
 .card {
     background-color: #D7F2F2;
